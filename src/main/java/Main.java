@@ -5,11 +5,11 @@ public class Main {
         PersonRepository personListRepository = new PersonListRepository();
         PersonRepository personMapRepository = new PersonMapRepository();
 
-        personListRepository.addPerson(new Person(1, "Alice", DaysOfWeek.MONDAY));
-        personListRepository.addPerson(new Person(2, "Bob", DaysOfWeek.SATURDAY));
+        personListRepository.addPerson(new Person(1, "Alex", DaysOfWeek.MONDAY, Gender.MALE ));
+        personListRepository.addPerson(new Person(2, "Bob", DaysOfWeek.SATURDAY, Gender.MALE));
 
-        personMapRepository.addPerson(new Person(1, "Alice", DaysOfWeek.MONDAY));
-        personMapRepository.addPerson(new Person(2, "Bob", DaysOfWeek.SATURDAY));
+        personMapRepository.addPerson(new Person(1, "Alex", DaysOfWeek.MONDAY, Gender.MALE));
+        personMapRepository.addPerson(new Person(2, "Bob", DaysOfWeek.SATURDAY, Gender.MALE));
 
         int searchId = 2;
 
@@ -31,5 +31,9 @@ public class Main {
         } else {
             System.out.println("Person not found");
         }
+
+
+        System.out.println("Count of males with list : " + personListRepository.getPersonCountsByGender(Gender.MALE));
+        System.out.println("Count of males with map : " + personMapRepository.getPersonCountsByGender(Gender.MALE));
     }
 }

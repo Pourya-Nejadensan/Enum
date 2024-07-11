@@ -12,6 +12,11 @@ public class PersonMapRepository implements PersonRepository{
     }
 
     @Override
+    public int getPersonCountsByGender(Gender gender) {
+        return (int) persons.values().stream().filter(person -> person.gender() == gender).count();
+    }
+
+    @Override
     public Optional<Person> findById(int id) {
         return Optional.ofNullable(persons.get(id));
     }

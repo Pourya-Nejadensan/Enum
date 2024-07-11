@@ -14,6 +14,11 @@ public class PersonListRepository implements PersonRepository{
     }
 
     @Override
+    public int getPersonCountsByGender(Gender gender) {
+        return (int) persons.stream().filter(person -> person.gender().equals(gender)).count();
+    }
+
+    @Override
     public Optional<Person> findById(int id) {
         return persons.stream().filter(person -> person.id() == id).findFirst();
     }
